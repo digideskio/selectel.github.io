@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Supload | Selectel Open Source</title>
+    <meta charset="UTF-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta content="ru" http-equiv="content-language">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0" name="viewport">
+    <meta content="ключевые слова" name="keywords">
+    <meta content="Описание страницы" name="description">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <link href="/assets/img/favicon.ico" rel="icon" type="image/png">
+    <style id="banner-shadow-trigger"></style>
+    <link href="/assets/css/project-page.css" media="screen" rel="stylesheet" type="text/css" /><script src="/assets/js/libs/jquery-2.0.2.min.js" type="text/javascript"></script><script src="/assets/js/libs/bootstrap.min.js" type="text/javascript"></script>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sons-of-obsidian"></script>
+    <script src="/assets/js/libs/jquery.mousewheel-3.0.6.pack.js" type="text/javascript"></script><script src="/assets/js/fancybox/source/jquery.fancybox.pack.js?v=2.1.5.js" type="text/javascript"></script><link href="/assets/js/fancybox/source/jquery.fancybox.css?v=2.1.5.css" media="screen" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700&amp;subset=latin,cyrillic-ext" media="screen" rel="stylesheet" type="text/css" /><!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]--><!--[endif]><![endif]-->
+    <script type="text/javascript">
+      if (window.navigator.userAgent.match(/Chrome\/\w+\.\w+/i)) {
+        $("head").append("<style>.banner:after{box-shadow: none !important}</style>");
+      }
+      $(function(){
+        $("a.tile").fancybox();
+        $(".carousel").each(function(ind, slider){
+          if ($(slider).find(".item").length <= 1) {
+            $(slider).find(".carousel-control").hide()
+          }
+        });
+        $('.banner#slider').on('slide.bs.carousel', function (e) {
+          var next = $(e.relatedTarget).data('name');
+          $(this).attr("data-bg", next);
+        });
+        $(".github-repo").each(function(item, index){
+          var repo = $(this).data("repo");
+          $.ajax({
+            url: "https://api.github.com/repos/" + repo,
+            async: false,
+            type: "GET"
+          }).done(function(data){
+            $(this).find(".stars a.gh-count").html(data["stargazers_count"]).removeClass("hidden");
+            $(this).find(".forks a.gh-count").html(data["forks_count"]).removeClass("hidden");
+          }.bind(this));
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <HEADER class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <nav class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" data-target="#nav-collapse" data-toggle="collapse" type="button"><span class="sr-only">Меню</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="/"><img alt="На главную" src="/assets/img/Selectel_logo.svg"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="nav-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/command/#developers">Разработчики</a>
+            </li>
+            <li>
+              <a href="/command/">О компании</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </HEADER><MAIN><section class="container-fluid banner">
+  <div class="container">
+    <article class="row">
+      <div class="col-md-1 emblem">
+        <img class="icon" src="/assets/img/projects/icons/supload.png">
+      </div>
+      <div class="col-md-10 about">
+        <hgroup>
+          <h1>
+            SUpload
+          </h1>
+        </hgroup>
+        <p>
+          Утилита на Bash, предназначенная для загрузки файлов в облачные хранилища, использущие OpenStackSwift API. Для работы требует минимум зависимостей и сторонних программ. С ее помощью можно загружать файлы в хранилище, осуществлять рекурсивную загрузку файлов в указанной папке и подпапках.
+        </p>
+        <div class="github-repo" data-repo="selectel/supload">
+          <div class="git-btn-wrapper stars">
+            <span class="github-btn github-btn-large"><!--noindex--><a class="gh-btn" href="https://github.com/selectel/supload/" rel="nofollow" target="_blank"><span class="gh-ico i-star"></span><span class="gh-text">Star</span></a><a class="gh-count hidden" href="https://github.com/selectel/supload/stargazers" target="_blank"></a><!--/noindex--></span>
+          </div>
+          <div class="git-btn-wrapper forks">
+            <span class="github-btn github-btn-large"><!--noindex--><a class="gh-btn" href="https://github.com/selectel/supload/fork" rel="nofollow" target="_blank"><span class="gh-ico i-flow-branch"></span><span class="gh-text">Fork</span></a><a class="gh-count hidden" href="https://github.com/selectel/supload/network" rel="nofollow" target="_blank"></a><!--/noindex--></span>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+<section class="container">
+  <article class="project row">
+    <section class="col-md-12">
+      <h2 class="title">
+        Supload
+      </h2>
+      <p>
+        Утилита на Bash, предназначенная для загрузки файлов в облачные хранилища, использущие OpenStackSwift API. Для работы требует минимум зависимостей и сторонних программ. С ее помощью можно загружать файлы в хранилище, осуществлять рекурсивную загрузку файлов в указанной папке и подпапках, загружать новые файлы, настраивать автоудаление файлов. Может быть также использована для и резервного копирования в хранилище.
+      </p>
+      <h3>
+        Установка
+      </h3>
+      <p>
+        Перед установкой supload на клиентской машине должны быть установлены утилиты curl и file.  Они включены в репозитории большинства дистрибутивов Linux и устанавливаются при помощи стандартного менеджера пакетов:
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">$ apt-get install curl file</pre>
+    <section class="col-md-12">
+      <p>
+        Далее скачайте скрипт, выполнив следующую команду:
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">$ wget https://raw.github.com/selectel/supload/master/supload.sh && chmod +x supload.sh</pre>
+    <section class="col-md-12">
+      <p>
+        или
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">$ curl -Ok https://raw.github.com/selectel/supload/master/supload.sh && chmod +x supload.sh</pre>
+    <section class="col-md-12">
+      <p>
+        Можно переместить supload в /usr/bin or /usr/local/bin:
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">$ mv supload.sh /usr/local/bin/supload</pre>
+    <section class="col-md-12">
+      <h3>
+        Примеры использования
+      </h3>
+      <p>
+        Просмотреть мануал:
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">$ ./supload.sh</pre>
+    <section class="col-md-12">
+      <p>
+        Загрузить один файл (файл будет загружен, если он на текущий момент отсутствует в хранилище или был изменен с момента последней загрузки):
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">$ ./supload.sh -u USERNAME -k USERKEY storage_dir local_file.path</pre>
+    <section class="col-md-12">
+      <p>
+        Загрузить все файлы из каталога:
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">$ ./supload.sh -u USRNAME -k USERKEY -r storage_dir local_dir/</pre>
+    <section class="col-md-12">
+      <p>
+        Загрузка без синхронизации (опция -М):
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">$ ./supload.sh -u USERNAME -k USERKEY -r -M storage_dir local_dir/</pre>
+    <section class="col-md-12">
+      <p>
+        Установить срок, после которого загруженный файл будет удален из хранилища (опция -d):
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">$ ./supload.sh -u USERNAME -k USERKEY -d 7d storage_dir file.doc</pre>
+    <section class="col-md-12">
+      <h3>
+        Лицензия
+      </h3>
+      <p>
+        Опубликовано под лицензией GNU GPL.  
+      </p>
+      <table class="table table-bordered table-striped">
+        <tr>
+          <td>
+            Требуется указывать имя автора
+          </td>
+          <td>
+            Да
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Измененные файлы должны быть помечены
+          </td>
+          <td>
+            Да
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Наименование производного ПО должно отличаться от наименования продукта создателей лицензии
+          </td>
+          <td>
+            Нет
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Производные продукты должны распространяться на условиях первоначальной лицензии
+          </td>
+          <td>
+            Да
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Указана территория, на которую предоставляется лицензия
+          </td>
+          <td>
+            Нет
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Отсутствие гарантий на ПО
+          </td>
+          <td>
+            Да
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Предоставляется право применить другую лицензию
+          </td>
+          <td>
+            Нет
+          </td>
+        </tr>
+      </table>
+      <p>
+        Ссылка на репозиторий на <!--noindex--><a rel="nofollow" target="_blank" href="https://github.com/selectel/supload">GitHub</a><!--/noindex-->.
+      </p>
+    </section>
+  </article>
+</section></MAIN><FOOTER class="navbar navbar-default">2014 © Селектел</FOOTER>
+  </body>
+</html>

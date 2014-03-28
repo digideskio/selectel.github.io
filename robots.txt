@@ -1,0 +1,12 @@
+User-agent: Yandex 
+Allow: /
+Disallow: /assets/js/
+Disallow: /assets/css/
+Sitemap: http://storage.selectel.ru/sitemap.xml
+Host: storage.selectel.ru
+
+User-agent: *
+Allow: /
+Disallow: /assets/js/
+Disallow: /assets/css/
+Sitemap: http://storage.selectel.ru/sitemap.xml

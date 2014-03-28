@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Pyte | Selectel Open Source</title>
+    <meta charset="UTF-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta content="ru" http-equiv="content-language">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0" name="viewport">
+    <meta content="io, develop" name="keywords">
+    <meta content="Разработки компании Selectel." name="description">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <link href="/assets/img/favicon.ico" rel="icon" type="image/png">
+    <style id="banner-shadow-trigger"></style>
+    <link href="/assets/css/project-page.css" media="screen" rel="stylesheet" type="text/css" /><script src="/assets/js/libs/jquery-2.0.2.min.js" type="text/javascript"></script><script src="/assets/js/libs/bootstrap.min.js" type="text/javascript"></script>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sons-of-obsidian"></script>
+    <script src="/assets/js/libs/jquery.mousewheel-3.0.6.pack.js" type="text/javascript"></script><script src="/assets/js/fancybox/source/jquery.fancybox.pack.js?v=2.1.5.js" type="text/javascript"></script><link href="/assets/js/fancybox/source/jquery.fancybox.css?v=2.1.5.css" media="screen" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700&amp;subset=latin,cyrillic-ext" media="screen" rel="stylesheet" type="text/css" /><!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]--><!--[endif]><![endif]-->
+    <script type="text/javascript">
+      if (window.navigator.userAgent.match(/Chrome\/\w+\.\w+/i)) {
+        $("head").append("<style>.banner:after{box-shadow: none !important}</style>");
+      }
+      $(function(){
+        $("a.tile").fancybox();
+        $(".carousel").each(function(ind, slider){
+          if ($(slider).find(".item").length <= 1) {
+            $(slider).find(".carousel-control").hide()
+          }
+        });
+        $('.banner#slider').on('slide.bs.carousel', function (e) {
+          var next = $(e.relatedTarget).data('name');
+          $(this).attr("data-bg", next);
+        });
+        $(".github-repo").each(function(item, index){
+          var repo = $(this).data("repo");
+          $.ajax({
+            url: "https://api.github.com/repos/" + repo,
+            async: false,
+            type: "GET"
+          }).done(function(data){
+            $(this).find(".stars a.gh-count").html(data["stargazers_count"]).removeClass("hidden");
+            $(this).find(".forks a.gh-count").html(data["forks_count"]).removeClass("hidden");
+          }.bind(this));
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <HEADER class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <nav class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" data-target="#nav-collapse" data-toggle="collapse" type="button"><span class="sr-only">Меню</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="/"><img alt="На главную" src="/assets/img/Selectel_logo.svg"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="nav-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/command/#developers">Разработчики</a>
+            </li>
+            <li>
+              <a href="/command/">О компании</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </HEADER><MAIN><section class="container-fluid banner">
+  <div class="container">
+    <article class="row">
+      <div class="col-md-1 emblem">
+        <img class="icon" src="/assets/img/projects/icons/pyte.png">
+      </div>
+      <div class="col-md-10 about">
+        <hgroup>
+          <h1>
+            Pyte
+          </h1>
+        </hgroup>
+        <p>
+          VTXXX–совместимый эмулятор терминала, написанный на Python. ХХХ обозначает серию видеотерминалов, разработанных компанией DEC в период 1970 - 1995. Первым и самым известным является, конечно же, терминал VT100, ныне де-факто являющийся стандартом для всех виртуальных терминалов.
+        </p>
+        <div class="github-repo" data-repo="selectel/pyte">
+          <div class="git-btn-wrapper stars">
+            <span class="github-btn github-btn-large"><!--noindex--><a class="gh-btn" href="https://github.com/selectel/pyte/" rel="nofollow" target="_blank"><span class="gh-ico i-star"></span><span class="gh-text">Star</span></a><a class="gh-count hidden" href="https://github.com/selectel/pyte/stargazers" target="_blank"></a><!--/noindex--></span>
+          </div>
+          <div class="git-btn-wrapper forks">
+            <span class="github-btn github-btn-large"><!--noindex--><a class="gh-btn" href="https://github.com/selectel/pyte/fork" rel="nofollow" target="_blank"><span class="gh-ico i-flow-branch"></span><span class="gh-text">Fork</span></a><a class="gh-count hidden" href="https://github.com/selectel/pyte/network" rel="nofollow" target="_blank"></a><!--/noindex--></span>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+<section class="container">
+  <article class="project row">
+    <section class="col-md-12">
+      <h2 class="title">
+        Pyte
+      </h2>
+      <p>
+        VTXXX-совместимый эмулятор терминала, написанный на Python. ХХХ обозначает серию видеотерминалов, разработанных компанией DEC в период 1970-1995. Первым и самым известным является, конечно же, терминал VT100, ныне де-факто являющийся стандартом для всех виртуальных терминалов.
+      </p>
+      <p>
+        Pyte был создан на основе библиотеки samfoo/vt102, которая в ходе работы была переписана полностью. Мы используем Pyte для показа консолей виртуальныx машин в облаке.
+      </p>
+      <h2>
+        Установка
+      </h2>
+      <p>
+        Клонируйте репозиторий на GitHub:
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">$ git clone http://github.com/selectel/pyte</pre>
+    <section class="col-md-12">
+      <p>
+        Далее выполните следующую команду:
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">$ python setup.py install</pre>
+    <section class="col-md-12">
+      <p>
+        Если у вас установлена библиотека setuptools, то установить pyte можно при помощи команды:
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">$ easy_install -U pyte </pre>
+    <section class="col-md-12">
+      <h2>
+        Использование
+      </h2>
+      <p>
+        В Pyte имеется два основных класса: Sсreen и Stream. Screen представляет собой эмулятор экрана терминала. Он хранит в буфере текст и атрибуты текста, отображаемые на экране. Stream представляет собой потоковый процессор, который осуществляет парсинг команд с последующим отображением на экране.
+      </p>
+      <p>
+        Пример:
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">>>> import pyte
+>>> screen = pyte.Screen(80, 24)
+>>> stream = pyte.Stream()
+>>> stream.attach(screen)
+>>> stream.feed("Hello World!")
+>>> screen.display
+   ['Hello World!                                                                    ',
+    '                                                                                ',
+    '                                                                                ',
+    '                                                                                ',
+    '                                                                                ',
+    '                                                                                ',
+    '                                                                                ',
+    '                                                                                ',
+    '                                                                                ',
+    '                                                                                ',
+    '                                                                                ',
+    '                                                                                ',
+    '                                                                                ',
+    '                                                                                ',
+    '                                                                                ',
+    '                                                                                ',
+    '                                                                                ',
+    '                                                                                ',
+    '                                                                                ',
+    '                                                                                ',
+    '                                                                                ',
+    '                                                                                ',
+    '                                                                                ',
+    '                                                                                ']</pre>
+    <section class="col-md-12">
+      <p>
+        Screen не может читать и изменять переменные окружения, поэтому:
+      </p>
+      <ul>
+        <li>
+          выравнивание строк и колонок при событии resize не производится;
+        </li>
+        <li>
+          локальные настройки (например, LC_* и LANG) не могут быть применены;
+        </li>
+        <li>
+          переменная TERM имеет только одно значение - Linux.
+        </li>
+      </ul>
+      <h3>
+        Лицензия
+      </h3>
+      <p>
+        Опубликовано под лицензией GNU GPL.  
+      </p>
+      <table class="table table-bordered table-striped">
+        <tr>
+          <td>
+            Требуется указывать имя автора
+          </td>
+          <td>
+            Да
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Измененные файлы должны быть помечены
+          </td>
+          <td>
+            Да
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Наименование производного ПО должно отличаться от наименования продукта создателей лицензии
+          </td>
+          <td>
+            Нет
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Производные продукты должны распространяться на условиях первоначальной лицензии
+          </td>
+          <td>
+            Да
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Указана территория, на которую предоставляется лицензия
+          </td>
+          <td>
+            Нет
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Отсутствие гарантий на ПО
+          </td>
+          <td>
+            Да
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Предоставляется право применить другую лицензию
+          </td>
+          <td>
+            Нет
+          </td>
+        </tr>
+      </table>
+      <p>
+        Ссылка на репозиторий на <!--noindex--><a rel="nofollow" target="_blank" href="https://github.com/selectel/pyte">GitHub</a><!--/noindex-->.
+      </p>
+    </section>
+  </article>
+</section></MAIN><FOOTER class="navbar navbar-default">2014 © Селектел</FOOTER>
+  </body>
+</html>

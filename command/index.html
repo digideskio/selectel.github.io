@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Разработчики | Selectel Open Source</title>
+    <meta charset="UTF-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta content="ru" http-equiv="content-language">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0" name="viewport">
+    <meta content="io, develop" name="keywords">
+    <meta content="Разработки компании Selectel." name="description">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <link href="/assets/img/favicon.ico" rel="icon" type="image/png">
+    <style id="banner-shadow-trigger"></style>
+    <link href="/assets/css/command-page.css" media="screen" rel="stylesheet" type="text/css" /><script src="/assets/js/libs/jquery-2.0.2.min.js" type="text/javascript"></script><script src="/assets/js/libs/bootstrap.min.js" type="text/javascript"></script>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sons-of-obsidian"></script>
+    <script src="/assets/js/libs/jquery.mousewheel-3.0.6.pack.js" type="text/javascript"></script><script src="/assets/js/fancybox/source/jquery.fancybox.pack.js?v=2.1.5.js" type="text/javascript"></script><link href="/assets/js/fancybox/source/jquery.fancybox.css?v=2.1.5.css" media="screen" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700&amp;subset=latin,cyrillic-ext" media="screen" rel="stylesheet" type="text/css" /><!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]--><!--[endif]><![endif]-->
+    <script type="text/javascript">
+      if (window.navigator.userAgent.match(/Chrome\/\w+\.\w+/i)) {
+        $("head").append("<style>.banner:after{box-shadow: none !important}</style>");
+      }
+      $(function(){
+        $("a.tile").fancybox();
+        $(".carousel").each(function(ind, slider){
+          if ($(slider).find(".item").length <= 1) {
+            $(slider).find(".carousel-control").hide()
+          }
+        });
+        $('.banner#slider').on('slide.bs.carousel', function (e) {
+          var next = $(e.relatedTarget).data('name');
+          $(this).attr("data-bg", next);
+        });
+        $(".github-repo").each(function(item, index){
+          var repo = $(this).data("repo");
+          $.ajax({
+            url: "https://api.github.com/repos/" + repo,
+            async: false,
+            type: "GET"
+          }).done(function(data){
+            $(this).find(".stars a.gh-count").html(data["stargazers_count"]).removeClass("hidden");
+            $(this).find(".forks a.gh-count").html(data["forks_count"]).removeClass("hidden");
+          }.bind(this));
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <HEADER class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <nav class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" data-target="#nav-collapse" data-toggle="collapse" type="button"><span class="sr-only">Меню</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="/"><img alt="На главную" src="/assets/img/Selectel_logo.svg"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="nav-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/command/#developers">Разработчики</a>
+            </li>
+            <li>
+              <a href="/command/">О компании</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </HEADER><MAIN><section class="container-fluid banner">
+        <div class="container">
+          <article class="row">
+            <div class="col-md-1 emblem">
+              <img class="icon" src="/assets/img/selectel_icon.png">
+            </div>
+            <div class="col-md-10 about">
+              <hgroup>
+                <h1>
+                  О компании
+                </h1>
+              </hgroup>
+              <p>
+                Разработкой ПО с открытым исходным кодом мы занимаемся уже более двух лет (аккаунт на GitHub был зарегистрирован в 2011 году). Почему мы, коммерческая компания, принимаем активное участие в движении Open Source?
+              </p>
+              <div class="github-repo">
+                <div class="git-btn-wrapper">
+                  <span class="github-btn github-btn-large"><!--noindex--><a class="gh-btn" href="http://selectel.ru" rel="nofollow" target="_blank"><span class="gh-text">Официальный сайт</span></a><!--/noindex--></span>
+                </div>
+                <div class="git-btn-wrapper forks">
+                  <span class="github-btn github-btn-large"><!--noindex--><a class="gh-btn" href="http://blog.selectel.ru" rel="nofollow" target="_blank"><span class="gh-text">Блог</span></a><!--/noindex--></span>
+                </div>
+                <div class="git-btn-wrapper forks">
+                  <span class="github-btn github-btn-large"><!--noindex--><a class="gh-btn" href="http://habrahabr.ru/company/selectel/blog/" rel="nofollow" target="_blank"><span class="gh-text">ХабраХабр</span></a><!--/noindex--></span>
+                </div>
+                <div class="git-btn-wrapper forks">
+                  <span class="github-btn github-btn-large"><!--noindex--><a class="gh-btn" href="http://github.com/selectel/" rel="nofollow" target="_blank"><span class="gh-text">GitHub</span></a><!--/noindex--></span>
+                </div>
+                <div class="git-btn-wrapper forks">
+                  <span class="github-btn github-btn-large"><!--noindex--><a class="gh-btn" href="http://twitter.com/selectel/" rel="nofollow" target="_blank"><span class="gh-text">Twitter</span></a><!--/noindex--></span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section class="container">
+        <article class="project row">
+          <section class="col-md-12">
+            <h2 class="title">
+              Мы за открытый код
+            </h2>
+            <p>
+              В своей деятельности мы часто используем те или иные библиотеки с открытым исходным кодом. Негласное правило Open Source сообщества предполагает: нужно не только брать, но и давать что-то взамен: воспользовался продуктом — постарайся улучшить его. Свободное программное обеспечение как раз развивается благодаря тому, что миллионы пользователей (как любителей, так и профессионалов), — дополняют и совершенствуют продукты, с которыми они работают. Желание усовершенствовать используемые нами свободно распространяемые библиотеки и поделиться своими наработками с коллегами стало одним из мотивов, побудивших нас открывать собственные продукты на GitHub. Но этот мотив был далеко не единственным.
+            </p>
+            <h3>
+              Почему мы делимся этим бесплатно
+            </h3>
+            <p>
+              В сообществе разработчиков свободного ПО (как и в любом сетевом сообществе, объединяющем людей со схожими интересами) все участники внимательно следяет за деятельностью друг друга. Авторы действительно интересных решений могут получить известность в кругах профессионалов. В свою очередь коммерческие компании благодаря участию в опенсорсных проектах могут существенно повысить собственную узнаваемость. Так, некоторые клиенты стали пользоваться нашими услугами после того, как ознакомились с нашими продуктами на GitHub. Поправки и улучшения, внесенные в наши продукты клиентами, мы всегда принимаем во внимание и используем в дальнейшей работе.
+            </p>
+          </section>
+          <h3 class="mini-slider col-md-12">
+            Рабочие места
+          </h3>
+          <section class="mini-slider carousel slide col-md-12" data-ride="carousel" id="slider">
+            <ul class="carousel-inner">
+              <li class="item active">
+                <ul class="tile-set">
+                  <li>
+                    <a class="tile" href="/assets/img/workspace/001.jpg" rel="group1"><img alt="pic" src="/assets/img/workspace/001_thumb.jpg">
+                      <div class="tip">
+                        <i class="i-zoomin"></i>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="tile" href="/assets/img/workspace/002.jpg" rel="group1"><img alt="pic" src="/assets/img/workspace/002_thumb.jpg">
+                      <div class="tip">
+                        <i class="i-zoomin"></i>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="tile" href="/assets/img/workspace/003.jpg" rel="group1"><img alt="pic" src="/assets/img/workspace/003_thumb.jpg">
+                      <div class="tip">
+                        <i class="i-zoomin"></i>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="tile" href="/assets/img/workspace/004.jpg" rel="group1"><img alt="pic" src="/assets/img/workspace/004_thumb.jpg">
+                      <div class="tip">
+                        <i class="i-zoomin"></i>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="tile" href="/assets/img/workspace/005.jpg" rel="group1"><img alt="pic" src="/assets/img/workspace/005_thumb.jpg">
+                      <div class="tip">
+                        <i class="i-zoomin"></i>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <a class="left carousel-control" data-slide="prev" href="#slider"></a><a class="right carousel-control" data-slide="next" href="#slider"></a>
+          </section>
+          <section class="col-md-12">
+            <div id="developers"></div>
+            <h3>
+              Разработчики
+            </h3>
+            <ul class="tile-set">
+              <li>
+                <div class="tile">
+                  <img src="/assets/img/devers_avatars/daniel.jpg">
+                  <div class="tip">
+                    <!--noindex--><a class="i-vk" href="http://vk.com/apatin" rel="nofollow" target="_blank"></a><a class="i-twitter" href="http://twitter.com/danielapatin" rel="nofollow" target="_blank"></a><a class="i-github" href="http://github.com/ad" rel="nofollow" target="_blank"></a><!--/noindex-->
+                  </div>
+                </div>
+                <h5 class="name">
+                  Даниил Апатин
+                </h5>
+                <p class="skils">
+                  PHP, Python
+                </p>
+              </li><li>
+                <div class="tile">
+                  <img src="/assets/img/devers_avatars/sirkonst.jpg">
+                  <div class="tip">
+                    <!--noindex--><a class="i-vk" href="http://vk.com/sirkonst" rel="nofollow" target="_blank"></a><a class="i-twitter" href="http://twitter.com/sirkonst" rel="nofollow" target="_blank"></a><a class="i-github" href="http://github.com/sirkonst" rel="nofollow" target="_blank"></a><!--/noindex-->
+                  </div>
+                </div>
+                <h5 class="name">
+                  Капустин Константин
+                </h5>
+                <p class="skils">
+                  Python, Bash
+                </p>
+              </li><li>
+                <div class="tile">
+                  <img src="/assets/img/devers_avatars/tnt-dev.jpg">
+                  <div class="tip">
+                    <!--noindex--><a class="i-vk" href="http://vk.com/anpavel" rel="nofollow" target="_blank"></a><a class="i-twitter" href="http://twitter.com/pavelabalihin" rel="nofollow" target="_blank"></a><a class="i-github" href="http://github.com/tnt-dev" rel="nofollow" target="_blank"></a><!--/noindex-->
+                  </div>
+                </div>
+                <h5 class="name">
+                  Павел Абалихин
+                </h5>
+                <p class="skils">
+                  Erlang, C, C++
+                </p>
+              </li><li>
+                <div class="tile">
+                  <img src="/assets/img/devers_avatars/rocco66.jpg">
+                  <div class="tip">
+                    <!--noindex--><a class="i-vk" href="http://vk.com/rocco66" rel="nofollow" target="_blank"></a><a class="i-twitter" href="http://twitter.com/rocco66max" rel="nofollow" target="_blank"></a><a class="i-github" href="http://github.com/rocco66" rel="nofollow" target="_blank"></a><!--/noindex-->
+                  </div>
+                </div>
+                <h5 class="name">
+                  Максим Митрошин
+                </h5>
+                <p class="skils">
+                  Python, JavaScript
+                </p>
+              </li><li>
+                <div class="tile">
+                  <img src="/assets/img/devers_avatars/romario8.png">
+                  <div class="tip">
+                    <!--noindex--><a class="i-vk" href="http://vk.com/dashevski" rel="nofollow" target="_blank"></a><a class="i-twitter" href="http://twitter.com/roman_dashevski" rel="nofollow" target="_blank"></a><a class="i-github" href="http://github.com/romario8" rel="nofollow" target="_blank"></a><!--/noindex-->
+                  </div>
+                </div>
+                <h5 class="name">
+                  Роман Дашевский
+                </h5>
+                <p class="skils">
+                  Python
+                </p>
+              </li><li>
+                <div class="tile">
+                  <img src="/assets/img/devers_avatars/ish.jpg">
+                  <div class="tip">
+                    <!--noindex--><a class="i-vk" href="http://vk.com/ish_13" rel="nofollow" target="_blank"></a><a class="i-twitter" href="http://twitter.com/ish_13" rel="nofollow" target="_blank"></a><a class="i-github" href="http://github.com/ish-" rel="nofollow" target="_blank"></a><!--/noindex-->
+                  </div>
+                </div>
+                <h5 class="name">
+                  Владислав Павлов
+                </h5>
+                <p class="skils">
+                  JavaScript
+                </p>
+              </li>
+            </ul>
+          </section>
+        </article>
+      </section></MAIN><FOOTER class="navbar navbar-default">2014 © Селектел</FOOTER>
+  </body>
+</html>

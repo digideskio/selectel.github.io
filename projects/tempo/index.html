@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tempo | Selectel Open Source</title>
+    <meta charset="UTF-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta content="ru" http-equiv="content-language">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0" name="viewport">
+    <meta content="io, develop" name="keywords">
+    <meta content="Разработки компании Selectel." name="description">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <link href="/assets/img/favicon.ico" rel="icon" type="image/png">
+    <style id="banner-shadow-trigger"></style>
+    <link href="/assets/css/project-page.css" media="screen" rel="stylesheet" type="text/css" /><script src="/assets/js/libs/jquery-2.0.2.min.js" type="text/javascript"></script><script src="/assets/js/libs/bootstrap.min.js" type="text/javascript"></script>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sons-of-obsidian"></script>
+    <script src="/assets/js/libs/jquery.mousewheel-3.0.6.pack.js" type="text/javascript"></script><script src="/assets/js/fancybox/source/jquery.fancybox.pack.js?v=2.1.5.js" type="text/javascript"></script><link href="/assets/js/fancybox/source/jquery.fancybox.css?v=2.1.5.css" media="screen" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700&amp;subset=latin,cyrillic-ext" media="screen" rel="stylesheet" type="text/css" /><!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]--><!--[endif]><![endif]-->
+    <script type="text/javascript">
+      if (window.navigator.userAgent.match(/Chrome\/\w+\.\w+/i)) {
+        $("head").append("<style>.banner:after{box-shadow: none !important}</style>");
+      }
+      $(function(){
+        $("a.tile").fancybox();
+        $(".carousel").each(function(ind, slider){
+          if ($(slider).find(".item").length <= 1) {
+            $(slider).find(".carousel-control").hide()
+          }
+        });
+        $('.banner#slider').on('slide.bs.carousel', function (e) {
+          var next = $(e.relatedTarget).data('name');
+          $(this).attr("data-bg", next);
+        });
+        $(".github-repo").each(function(item, index){
+          var repo = $(this).data("repo");
+          $.ajax({
+            url: "https://api.github.com/repos/" + repo,
+            async: false,
+            type: "GET"
+          }).done(function(data){
+            $(this).find(".stars a.gh-count").html(data["stargazers_count"]).removeClass("hidden");
+            $(this).find(".forks a.gh-count").html(data["forks_count"]).removeClass("hidden");
+          }.bind(this));
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <HEADER class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <nav class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" data-target="#nav-collapse" data-toggle="collapse" type="button"><span class="sr-only">Меню</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="/"><img alt="На главную" src="/assets/img/Selectel_logo.svg"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="nav-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/command/#developers">Разработчики</a>
+            </li>
+            <li>
+              <a href="/command/">О компании</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </HEADER><MAIN><section class="container-fluid banner">
+  <div class="container">
+    <article class="row">
+      <div class="col-md-1 emblem">
+        <img class="icon" src="/assets/img/projects/icons/tempo.png">
+      </div>
+      <div class="col-md-10 about">
+        <hgroup>
+          <h1>
+            Tempo
+          </h1>
+        </hgroup>
+        <p>
+          Библиотека Tempo предназначена для парсинга и форматирования времени на Erlang. Она реализует интерфейс к функциям strptime и strftime из стандартной библиотеки libc.
+        </p>
+        <div class="github-repo" data-repo="selectel/tempo">
+          <div class="git-btn-wrapper stars">
+            <span class="github-btn github-btn-large"><!--noindex--><a class="gh-btn" href="https://github.com/selectel/tempo/" rel="nofollow" target="_blank"><span class="gh-ico i-star"></span><span class="gh-text">Star</span></a><a class="gh-count hidden" href="https://github.com/selectel/tempo/stargazers" target="_blank"></a><!--/noindex--></span>
+          </div>
+          <div class="git-btn-wrapper forks">
+            <span class="github-btn github-btn-large"><!--noindex--><a class="gh-btn" href="https://github.com/selectel/tempo/fork" rel="nofollow" target="_blank"><span class="gh-ico i-flow-branch"></span><span class="gh-text">Fork</span></a><a class="gh-count hidden" href="https://github.com/selectel/tempo/network" rel="nofollow" target="_blank"></a><!--/noindex--></span>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+<section class="container">
+  <article class="project row">
+    <section class="col-md-12">
+      <h2 class="title">
+        Tempo
+      </h2>
+      <p>
+        Библиотека Tempo предназначена для парсинга и форматирования времени на Erlang. Она реализует интерфейс к функциям strptime и strftime из стандартной библиотеки libc.
+      </p>
+      <h3>
+        Описание
+      </h3>
+      <p>
+        Tempo обеспечивает интерфейс для библиотек strptime/strftime, написанным на C, обеспечивающий корректную обработку форматов времени на Erlang.
+      </p>
+      <p>
+        Все экспортированные функции могут выдать ответ badarg в случае, если данные на входе заданы некорректно. 
+      </p>
+      <p>
+        Аргумент type может принимать следующие значения:
+      </p>
+      <ul>
+        <li>
+          unix - метка времени UNIX, положительное целое число, означающее число секунд, прошедших с 1 января 1970 года;
+        </li>
+        <li>
+          now - erlang:now/0:
+        </li>
+        <li>
+          datetime - calendar:datetime
+        </li>
+      </ul>
+      <p>
+        Аргументом Format для любой из экспортированных функций может быть либо binary(), состоящая из описателей поля и текстовых символов, совместимых с strptime/strftime, либо один из следующих атомов: iso8601, rfc1123, rfc2822. В последнем случае будет использован предопределенный формат.
+      </p>
+      <p>
+        В 32-битных системах функции семейства format могут возвращать ошибку {error, time_overflow} в случае, если 32-битное значение превышает допустимый предел.  Минимальное значение для таких систем составляет {{1901,12,13},{20,45,52}} и максимальное - {{2038,1,19},{3,14,7}}.
+      </p>
+      <h3>
+        Типы данных 
+      </h3>
+      <b>datetime_type()</b>
+      <p>
+        datetime_type() = unix | now | datetime
+      </p>
+      <b>datetime_value()</b>
+      <p>
+        datetime_value() = unix_timestamp() | erlang:timestamp() | calendar:datetime()
+      </p>
+      <b>format()</b>
+      <p>
+        format() = binary() | iso8601 | rfc1123 | rfc2822
+      </p>
+      <b>unix_timestamp()</b>
+      <p>
+        unix_timestamp() = float()
+      </p>
+      <h3>
+        Функции
+      </h3>
+      <table class="table table-bordered table-striped">
+        <tr>
+          <td>
+            format/2 
+          </td>
+          <td>
+            форматирует кортеж {Type, Datatime} в соответствии с установленным форматом
+          </td>
+        </tr>
+        <tr>
+          <td>
+            format/3
+          </td>
+          <td>
+            форматирует дату и время в соответствии с установленным форматом
+          </td>
+        </tr>
+        <tr>
+          <td>
+            format_datatime2
+          </td>
+          <td>
+            вспомогательная функция, аналогичная format/3
+          </td>
+        </tr>
+        <tr>
+          <td>
+            format_now/2
+          </td>
+          <td>
+            вспомогательная функция, аналогичная format/3
+          </td>
+        </tr>
+        <tr>
+          <td>
+            format_unix/2
+          </td>
+          <td>
+            вспомогательная функция, аналогичная format/3
+          </td>
+        </tr>
+        <tr>
+          <td>
+            parse/2
+          </td>
+          <td>
+            парсит кортеж {Type, Binary} в соответствии с указанным форматом, возвращает кортеж ok/error вместе с датой и td временем в формате, определяемом атомом Type
+          </td>
+        </tr>
+        <tr>
+          <td>
+            parse/3
+          </td>
+          <td>
+            парсит Binary в соответствии с указанным форматом, возвращает кортеж ok/error вместе с датой и временем в td формате, определяемом атомом Type
+          </td>
+        </tr>
+        <tr>
+          <td>
+            parse_datatime2
+          </td>
+          <td>
+            вспомогательная функция, аналогичная parse/3
+          </td>
+        </tr>
+        <tr>
+          <td>
+            parse_now/2
+          </td>
+          <td>
+            вспомогательная функция, аналогичная parse/3
+          </td>
+        </tr>
+        <tr>
+          <td>
+            parse_unix/2
+          </td>
+          <td>
+            вспомогательная функция, аналогичная parse/3
+          </td>
+        </tr>
+      </table>
+      <h3>
+        Подробное описание функций
+      </h3>
+      <b>format/2</b>
+      <p>
+        format(Format::format(), X2::{datetime_type(), datetime_value()}) -> {ok, binary()} | {error, invalid_time} | {error, time_overflow}
+      </p>
+      <p>
+        Эквивалентна format(Format, Datetime, Type).
+      </p>
+      <b>format/3</b>
+      <p>
+        format(Format::format(),Datetime::datetime_value(), Type::datetime_type()) -> {ok, binary()} | {error, invalid_time} | {error, time_overflow}
+      </p>
+      <b>format_datetime/2</b>
+      <p>
+        format_datetime(Format::format(), Datetime::calendar:datetime()) -> {ok, binary()} | {error, invalid_time} | {error, time_overflow}
+      </p>
+      <p>
+        Эквивалента format(Format, Datetime, datetime).
+      </p>
+      <b>format_now/2</b>
+      <p>
+        format_now(Format::format(), X2::erlang:timestamp()) -> {ok, binary()} | {error, invalid_time} | {error, time_overflow}
+      </p>
+      <p>
+        Эквивалентна format(Format, Datetime, now).
+      </p>
+      <b>format_unix/2</b>
+      <p>
+        format_unix(Format::format(), Timestamp::unix_timestamp()) -> {ok, binary()} | {error, invalid_time} | {error, time_overflow}
+      </p>
+      <p>
+        Equivalent to format(Format, Datetime, timestamp).
+      </p>
+      <b>parse/2</b>
+      <p>
+        parse(Format::format(), X2::{datetime_type(), binary()}) -> {ok, datetime_value()} | {error, format_mismatch}
+      </p>
+      <p>
+        Эквивалентна parse(Format, DatetimeType, Binary).
+      </p>
+      <b>parse/3</b>
+      <p>
+        
+           parse(Format::format(), Bin::binary(), Type::datetime_type()) -> {ok, datetime_value()} | {error, format_mismatch}
+      </p>
+      <b>parse_datetime/2</b>
+      <p>
+        parse_datetime(Format::format(), Bin::binary()) -> {ok, calendar:datetime()} | {error, format_mismatch}
+      </p>
+      <p>
+        Эквивалентна parse(Format, Binary, datetime).
+      </p>
+      <b>parse_now/2</b>
+      <p>
+        parse_now(Format::format(), Bin::binary()) -> {ok, erlang:timestamp()} | {error, format_mismatch}
+      </p>
+      <p>
+        Эквивалентна parse(Format, Binary, now).
+      </p>
+      <b>parse_unix/2</b>
+      <p>
+        parse_unix(Format::format(), Bin::binary()) -> {ok, unix_timestamp()} | {error, format_mismatch}
+      </p>
+      <p>
+        Эквивалентна parse(Format, Binary, timestamp).
+      </p>
+      <h3>
+        Пример использования
+      </h3>
+    </section>
+    <pre class="prettyprint linenums col-md-12">1> {ok, Bin} = tempo:format(iso8601, {now, now()}).
+{ok,<<"2013-01-05T13:29:18+0400">>}
+2> tempo:parse(iso8601, {datetime, Bin}).
+{ok,{{2013,1,5},{13,29,18}}}</pre>
+    <section class="col-md-12">
+      <p>
+        По умолчанию используется три формата времени: iso8601, rfc1123, и rfc2822.
+      </p>
+      <p>
+        Можно использовать любой формат, соответствующий требованиям libc:
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">(tempo_dev@localhost)1> {ok, Bin} = tempo:format(<<"%A, %Y-%d-%m">>, {now, now()}).
+{ok,<<"Thursday, 2012-07-06">>}</pre>
+    <section class="col-md-12">
+      <h4>
+        Известные ограничения и проблемы
+      </h4>
+      <p>
+        При парсинге дат до 1900 года под OS X возникает ошибка {error, format_mismatch}.
+      </p>
+      <h3>
+        Лицензия
+      </h3>
+      <p>
+        Опубликовано под лицензией MIT.
+      </p>
+      <table class="table table-bordered table-striped">
+        <tr>
+          <td>
+            Требуется указывать имя автора
+          </td>
+          <td>
+            Да
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Измененные файлы должны быть помечены
+          </td>
+          <td>
+            Нет
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Наименование производного ПО должно отличаться от наименования продукта создателей лицензии
+          </td>
+          <td>
+            Нет
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Производные продукты должны распространяться на условиях первоначальной лицензии
+          </td>
+          <td>
+            Нет
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Указана территория, на которую предоставляется лицензия
+          </td>
+          <td>
+            Нет
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Отсутствие гарантий на ПО
+          </td>
+          <td>
+            Да
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Предоставляется право применить другую лицензию
+          </td>
+          <td>
+            Не указано
+          </td>
+        </tr>
+      </table>
+      <p>
+        Ссылка на репозиторий на <!--noindex--><a rel="nofollow" target="_blank" href="https://github.com/selectel/tempo">GitHub</a><!--/noindex-->.
+      </p>
+    </section>
+  </article>
+</section></MAIN><FOOTER class="navbar navbar-default">2014 © Селектел</FOOTER>
+  </body>
+</html>

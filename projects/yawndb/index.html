@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Yawndb | Selectel Open Source</title>
+    <meta charset="UTF-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta content="ru" http-equiv="content-language">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0" name="viewport">
+    <meta content="ключевые слова" name="keywords">
+    <meta content="Описание страницы" name="description">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <link href="/assets/img/favicon.ico" rel="icon" type="image/png">
+    <style id="banner-shadow-trigger"></style>
+    <link href="/assets/css/project-page.css" media="screen" rel="stylesheet" type="text/css" /><script src="/assets/js/libs/jquery-2.0.2.min.js" type="text/javascript"></script><script src="/assets/js/libs/bootstrap.min.js" type="text/javascript"></script>
+    <script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?skin=sons-of-obsidian"></script>
+    <script src="/assets/js/libs/jquery.mousewheel-3.0.6.pack.js" type="text/javascript"></script><script src="/assets/js/fancybox/source/jquery.fancybox.pack.js?v=2.1.5.js" type="text/javascript"></script><link href="/assets/js/fancybox/source/jquery.fancybox.css?v=2.1.5.css" media="screen" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700&amp;subset=latin,cyrillic-ext" media="screen" rel="stylesheet" type="text/css" /><!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]--><!--[endif]><![endif]-->
+    <script type="text/javascript">
+      if (window.navigator.userAgent.match(/Chrome\/\w+\.\w+/i)) {
+        $("head").append("<style>.banner:after{box-shadow: none !important}</style>");
+      }
+      $(function(){
+        $("a.tile").fancybox();
+        $(".carousel").each(function(ind, slider){
+          if ($(slider).find(".item").length <= 1) {
+            $(slider).find(".carousel-control").hide()
+          }
+        });
+        $('.banner#slider').on('slide.bs.carousel', function (e) {
+          var next = $(e.relatedTarget).data('name');
+          $(this).attr("data-bg", next);
+        });
+        $(".github-repo").each(function(item, index){
+          var repo = $(this).data("repo");
+          $.ajax({
+            url: "https://api.github.com/repos/" + repo,
+            async: false,
+            type: "GET"
+          }).done(function(data){
+            $(this).find(".stars a.gh-count").html(data["stargazers_count"]).removeClass("hidden");
+            $(this).find(".forks a.gh-count").html(data["forks_count"]).removeClass("hidden");
+          }.bind(this));
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <HEADER class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <nav class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" data-target="#nav-collapse" data-toggle="collapse" type="button"><span class="sr-only">Меню</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="/"><img alt="На главную" src="/assets/img/Selectel_logo.svg"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="nav-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/command/#developers">Разработчики</a>
+            </li>
+            <li>
+              <a href="/command/">О компании</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </HEADER><MAIN><section class="container-fluid banner">
+  <div class="container">
+    <article class="row">
+      <div class="col-md-1 emblem">
+        <img class="icon" src="/assets/img/projects/icons/yawndb.png">
+      </div>
+      <div class="col-md-10 about">
+        <hgroup>
+          <h1>
+            YAWNDB
+          </h1>
+        </hgroup>
+        <p>
+          YAWNDB представляет собой кольцевую in-memory базу данных, написанную на Erlang. Модель легковесных процессов, лежащая в основе этого языка, позволяет обеспечить быструю обработку больших наборов данных при небольшом потреблении системных ресурсов. В основе YAWNDB лежит идея хранения данных в виде циклического массива ограниченной длины.
+        </p>
+        <div class="github-repo" data-repo="selectel/yawndb">
+          <div class="git-btn-wrapper stars">
+            <span class="github-btn github-btn-large"><!--noindex--><a class="gh-btn" href="https://github.com/selectel/yawndb/" rel="nofollow" target="_blank"><span class="gh-ico i-star"></span><span class="gh-text">Star</span></a><a class="gh-count hidden" href="https://github.com/selectel/yawndb/stargazers" target="_blank"></a><!--/noindex--></span>
+          </div>
+          <div class="git-btn-wrapper forks">
+            <span class="github-btn github-btn-large"><!--noindex--><a class="gh-btn" href="https://github.com/selectel/yawndb/fork" rel="nofollow" target="_blank"><span class="gh-ico i-flow-branch"></span><span class="gh-text">Fork</span></a><a class="gh-count hidden" href="https://github.com/selectel/yawndb/network" rel="nofollow" target="_blank"></a><!--/noindex--></span>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+<section class="container">
+  <article class="project row">
+    <section class="col-md-12">
+      <h2 class="title">
+        Описание
+      </h2>
+      <p>
+        YAWNDB представляет собой кольцевую in-memory базу данных, написанную на Erlang. Модель легковесных процессов, лежащая в основе этого языка, позволяет обеспечить быструю обработку больших наборов данных при небольшом потреблении системных ресурсов.
+      </p>
+      <p>
+        В основе YAWNDB лежит идея хранения данных в виде циклического массива ограниченной длины. В терминологии YAWNDB такой массив называется конвейером. 
+      </p>
+      <p>
+        Поступающие в YAWNDB данные распределяются по архивам (в терминологии YAWNDB называемым также корзинами - buckets) в сооветветствии с некоторыми правилами.
+      </p>
+      <p>
+        Под правилом понимается набор свойств для той или иной статистики (размер данных, период сбора и т.п.).
+      </p>
+      <p>
+        Все эти данные представляют собой триплеты, состоящие из времени, значения и ключа (ключ в терминологии YAWNDB называется также путем). Путь представляет собой последовательность строчных букв и цифр, определяющую, на какой именно конвейер должен попасть триплет. В этой последовательности наиболее важен первый компонент - префикс. Правило включает в том числе и поле Prefix и таким образом определяет, как хранятся данные для конкретного префикса. Для одного и того же префикса можно создавать несколько правил. В таком случае триплет будет записан в базу в соответствии с каждым из этих правил. Это означает, что конкретная пара “время - значение” поступит в N корзин, где N - количество правил, соответствующих префиксу пути для данной пары.
+      </p>
+      <p>
+        Используемый нами подход позволяет получить следующие преимущества:
+      </p>
+      <ul>
+        <li>
+          удаление утративших актуальность данных без излишних затрат ресурсов;
+        </li>
+        <li>
+          фиксированное потребление памяти для определенного количества ключей;
+        </li>
+        <li>
+          фиксированное время доступа к произвольной записи.
+        </li>
+      </ul>
+      <h2>
+        Внутреннее устройство
+      </h2>
+      <p>
+        В основе YAWNDB лежит round-robin алгоритм, реализованный в библиотеке Ecirca на языке С. Другие модули, написанные на Erlang взаимодействуют с ней при помощи NIF (Native Implemented Functions).
+      </p>
+      <p>
+        Для сохранения данных на диске используется Erlang-приложение Bitcask. REST API построен на базе веб-сервера Cowboy. Запись данных осуществляется через сокет, а считывание - с помощью REST API-интерфейса.
+      </p>
+      <h3>
+        Установка 
+      </h3>
+      <p>
+        Для работы с YAWNDB нужно обязательно установить парсер LibYAML. Чтобы установить YAWNB, нужно сначала клонировать репозиторий:
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">$ git clone git@github.com:selectel/yawndb.git</pre>
+    <section class="col-md-12">
+      <p>
+        И затем выполнить следующие команды:
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">$ cd yawndb$ make all</pre>
+    <section class="col-md-12">
+      <p>
+        Запуск YAWNDB осуществляется при помощи команды:
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">$ ./start.sh</pre>
+    <section class="col-md-12">
+      <p>
+        Перед запуском необходимо скопировать пример конфигурационного файла на место настоящего:
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">$ cp priv/yawndb.yml.example priv/yawndb.yml</pre>
+    <section class="col-md-12">
+      <p>
+        Или же создать соответствующий симлинк.
+      </p>
+      <h3>
+        Конфигурирование
+      </h3>
+      <p>
+        Настройки yawndb хранятся в файле yawndb.yml в YAML-формате. 
+      </p>
+      <h3>
+        Настройки сохранения данных на диск 
+      </h3>
+      <table class="table table-bordered table-striped">
+        <tr>
+          <th>
+            Параметр
+          </th>
+          <th>
+            Тип
+          </th>
+          <th>
+            Описание
+          </th>
+        </tr>
+        <tr>
+          <td>
+            flush_enabled
+          </td>
+          <td>
+            boolean
+          </td>
+          <td>
+            включение/выключение записи на диск
+          </td>
+        </tr>
+        <tr>
+          <td>
+            flush_dir
+          </td>
+          <td>
+            string
+          </td>
+          <td>
+            каталог для сохранения данных
+          </td>
+        </tr>
+        <tr>
+          <td>
+            flush_period
+          </td>
+          <td>
+            integer
+          </td>
+          <td>
+            период сохранения данных на диск (в секундах)
+          </td>
+        </tr>
+        <tr>
+          <td>
+            flush_late_threshold
+          </td>
+          <td>
+            float
+          </td>
+          <td>
+            запись сообщения в лог в случае, если сохранение занимает более чем 
+                            2flush_period * flush_late_threshold секунд
+          </td>
+        </tr>
+        <tr>
+          <td>
+            flush_cache
+          </td>
+          <td>
+            integer
+          </td>
+          <td>
+            кэш чтения, байт
+          </td>
+        </tr>
+        <tr>
+          <td>
+            flush_write_buffer
+          </td>
+          <td>
+            integer
+          </td>
+          <td>
+            кэш записи, байт
+          </td>
+        </tr>
+        <tr>
+          <td>
+            flush_block_size
+          </td>
+          <td>
+            integer
+          </td>
+          <td>
+            размер блока для записи на диск, байт
+          </td>
+        </tr>
+      </table>
+      <h3>
+        Настройки удаления из памяти данных, утративших актуальность
+      </h3>
+      <table class="table table-bordered table-striped">
+        <tr>
+          <th>
+            Параметр
+          </th>
+          <th>
+            Тип
+          </th>
+          <th>
+            Описание
+          </th>
+        </tr>
+        <tr>
+          <td>
+            cleanup_enabled 
+          </td>
+          <td>
+            boolean
+          </td>
+          <td>
+            включить/отключить удаление утративших актуальность данных
+          </td>
+        </tr>
+        <tr>
+          <td>
+            cleanup_period
+          </td>
+          <td>
+            integer
+          </td>
+          <td>
+            период очистки в секундах
+          </td>
+        </tr>
+      </table>
+      <h3>
+        Настройки пользовательского API
+      </h3>
+      <table class="table table-bordered table-striped">
+        <tr>
+          <th>
+            Параметр
+          </th>
+          <th>
+            Тип
+          </th>
+          <th>
+            Описание
+          </th>
+        </tr>
+        <tr>
+          <td>
+            listen_jsonapi_req
+          </td>
+          <td>
+            boolean
+          </td>
+          <td>
+            включение/отключение пользовательского API
+          </td>
+        </tr>
+        <tr>
+          <td>
+            jsonapi_iface 
+          </td>
+          <td>
+            string
+          </td>
+          <td>
+            интерфейс
+          </td>
+        </tr>
+        <tr>
+          <td>
+            jsonapi_port 
+          </td>
+          <td>
+            string 
+          </td>
+          <td>
+            порт
+          </td>
+        </tr>
+        <tr>
+          <td>
+            jsonapi_prespawned
+          </td>
+          <td>
+            integer
+          </td>
+          <td>
+            количество заранее созданных воркеров (может быть увеличено по мере необходимости)
+          </td>
+        </tr>
+      </table>
+      <h3>
+        Настройки администраторского API
+      </h3>
+      <table class="table table-bordered table-striped">
+        <tr>
+          <th>
+            Параметр
+          </th>
+          <th>
+            Тип
+          </th>
+          <th>
+            Описание		
+          </th>
+        </tr>
+        <tr>
+          <td>
+            listen_tcpapi_req
+          </td>
+          <td>
+            boolean
+          </td>
+          <td>
+            включение/отключение администраторского API
+          </td>
+        </tr>
+        <tr>
+          <td>
+            jsonapi_iface 
+          </td>
+          <td>
+            string
+          </td>
+          <td>
+            интерфейс
+          </td>
+        </tr>
+        <tr>
+          <td>
+            tcpapi_port 
+          </td>
+          <td>
+            string 
+          </td>
+          <td>
+            порт
+          </td>
+        </tr>
+        <tr>
+          <td>
+            tcpapi_prespawned
+          </td>
+          <td>
+            integer
+          </td>
+          <td>
+            количество заранее созданных воркеров (может быть увеличено по мере необходимости)
+          </td>
+        </tr>
+      </table>
+      <h3>
+        Настройки хранения данных
+      </h3>
+      <table class="table table-bordered table-striped">
+        <tr>
+          <th>
+            Параметр
+          </th>
+          <th>
+            Тип
+          </th>
+          <th>
+            Описание	
+          </th>
+        </tr>
+        <tr>
+          <td>
+            max_slice
+          </td>
+          <td>
+            integer
+          </td>
+          <td>
+            максимальный размер слайса, который разрешено выбирать
+          </td>
+        </tr>
+        <tr>
+          <td>
+            rules
+          </td>
+          <td>
+            list
+          </td>
+          <td>
+            правила, описывающие сохранение данных
+          </td>
+        </tr>
+      </table>
+      <h3>
+        Правила хранения данных
+      </h3>
+      <p>
+        Каждая пара представляет собой набор пар “свойство-значение”. Определены следующие свойства:
+      </p>
+      <table class="table table-bordered table-striped">
+        <tr>
+          <th>
+            Параметр
+          </th>
+          <th>
+            Тип
+          </th>
+          <th>
+            Описание
+          </th>
+        </tr>
+        <tr>
+          <td>
+            name
+          </td>
+          <td>
+            string
+          </td>
+          <td>
+            имя правила
+          </td>
+        </tr>
+        <tr>
+          <td>
+            prefix
+          </td>
+          <td>
+            string
+          </td>
+          <td>
+            префикс, с которым соотнесено правило
+          </td>
+        </tr>
+        <tr>
+          <td>
+            limit
+          </td>
+          <td>
+            integer
+          </td>
+          <td>
+            размер конвейера
+          </td>
+        </tr>
+        <tr>
+          <td>
+            split
+          </td>
+          <td>
+            string
+          </td>
+          <td>
+            определяет, как будет разделяться значение в случае с несовпадения с корзиной:
+                         proportional - будет разделено между двумя ближайшими корзинами пропорционально расстроянию до них;
+                         equal - будет поделено пополам между двумя ближайшими корзинами;
+                         forward/backward -поступит в следующую/предыдущую корзину целиком
+          </td>
+        </tr>
+        <tr>
+          <td>
+            type
+          </td>
+          <td>
+            string 
+          </td>
+          <td>
+            определяет, как будет накапливаться значение в корзине:
+                         last - будет сохранено только последнее значение;
+                         max - будет сохранено максимальное значение из поступивших;
+                         min - будет сохранено минимальное из поступивших значений;
+                         sum - будет сохранена сумма всех поступивших значений;
+                         avg - будет сохранено среднее значение.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            value_size
+          </td>
+          <td>
+            integer
+          </td>
+          <td>
+            Определяет размер значения корзины (16, 32 и 64 бита). Возможные значения -small, medium, large. 
+          </td>
+        </tr>
+        <tr>
+          <td>
+            additional_values
+          </td>
+          <td>
+            list 
+          </td>
+          <td>
+            Предстставляет собой список пар foobar: weak/strong длиной от 0 до 14 элементов. 
+                         В некоторых случаях возникает необходимость сохранять служебные значения, которые не являются числами - например, timeout. Для этой цели используется список дополнительных значений. Значения могут относиться к одному из следующих типов: strong или weak. Значения типа weak обновляются при обновлении корзины, а значения типа strong - нет.
+          </td>
+        </tr>
+        <tr>
+          <td>
+            autoremove
+          </td>
+          <td>
+            boolean
+          </td>
+          <td>
+            включить/отключить удаление конвейера при устаревании данных
+          </td>
+        </tr>
+      </table>
+      <h3>
+        API для чтения
+      </h3>
+      <p>
+        Получение данных осуществляется с помощью HTTP API. В YAWNDB имеется два типа API: административный и пользовательский. Настройки для API указаны в конфигурационном файле в разделах Admin JSON API и User JSON API.
+      </p>
+      <p>
+        Каждый ответ на запрос имеет форму типа:
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">json
+{
+    "status": "ok",
+    "code": "ok",
+    "answer": {}
+}</pre>
+    <section class="col-md-12">
+      <p>
+        где статус может принимать значения OK либо error.  При отсутствии ошибок code всегда имеет значение ok; в поле answer указывается ответ (подробнее об ответах см. ниже). В случае ошибки поле code содержит символьный код ошибки, а в поле answer указывается ее человекочитаемое описание. 
+      </p>
+      <p>
+        Пример конфигурации пользовательского API:
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">listen_jsonapi_reqs: true
+jsonapi_iface: "127.0.0.1"
+jsonapi_port: 8081
+jsonapi_prespawned: 30</pre>
+    <section class="col-md-12">
+      <p>
+        Получение списка правил для пути:
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">`GET /pathes/:path/rules`</pre>
+    <section class="col-md-12">
+      <p>
+        Пример ответа:
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">json
+{
+    "status": "ok",
+    "code": "ok",
+    "answer": ["stat"]
+}</pre>
+    <section class="col-md-12">
+      <p>
+        Получение списка пар время-значение для нескольких конвейеров за заданный интервал времени
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">`POST /pathes/slice`</pre>
+    <section class="col-md-12">
+      <p>
+        Конвейеры задаются в теле запроса в формате
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">"pathes=path1/rule,path2/rule2,path3/rule3"		</pre>
+    <section class="col-md-12">
+      <p>
+        Параметры запроса:
+      </p>
+      <table class="table table-bordered table-striped">
+        <tr>
+          <th>
+            Параметр
+          </th>
+          <th>
+            Тип
+          </th>
+          <th>
+            Описание
+          </th>
+        </tr>
+        <tr>
+          <td>
+            from
+          </td>
+          <td>
+            integer
+          </td>
+          <td>
+            Начальное время, UTC timestamp
+          </td>
+        </tr>
+        <tr>
+          <td>
+            to
+          </td>
+          <td>
+            integer
+          </td>
+          <td>
+            Конечное время, UTC timestamp
+          </td>
+        </tr>
+      </table>
+      <p>
+        Пример ответа:
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">json
+{
+ "status": "ok",
+ "code": "ok",
+ "answer": [
+    [63555098820, 10, 12],
+    [63555098888, 16, "empty"],
+    [63555098940, 12, 10],
+    [63555099000, 3, 8],
+    [63555099060, 10, 12],
+    [63555099120, 2, 9],
+    [63555099180, 7, 12],
+    [63555099240, 3, 4],
+    [63555099300, 20, 10],
+    [63555099360, 2, 11]
+ ]
+}		</pre>
+    <section class="col-md-12">
+      <p>
+        Получение списка последних пар время-значение для конвейера за заданный интервал времени:
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">`GET /pathes/:path/:rule/slice`</pre>
+    <section class="col-md-12">
+      <p>
+        Параметры запроса:
+      </p>
+      <table class="table table-bordered table-striped">
+        <tr>
+          <th>
+            Параметр
+          </th>
+          <th>
+            Тип
+          </th>
+          <th>
+            Описание
+          </th>
+        </tr>
+        <tr>
+          <td>
+            from
+          </td>
+          <td>
+            integer
+          </td>
+          <td>
+            Начальное время, UTC timestamp
+          </td>
+        </tr>
+        <tr>
+          <td>
+            to
+          </td>
+          <td>
+            integer
+          </td>
+          <td>
+            Конечное время, UTC timestamp
+          </td>
+        </tr>
+      </table>
+    </section>
+    <section class="col-md-12">
+      <p>
+        Пример ответа:
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">json
+{
+ "status": "ok",
+ "code": "ok",
+ "answer": [
+    [63555098820, 12],
+    [63555098880, "empty"],
+    [63555098940, 10],
+    [63555099000, "empty"],
+    [63555099060, 12],
+    [63555099120, "empty"],
+    [63555099180, 12],
+    [63555099240, "empty"],
+    [63555099300, 10],
+    [63555099360, "empty"]
+ ]
+}</pre>
+    <section class="col-md-12">
+      <p>
+        В ответе содержится список пар время-значение. В случае, если для некоторого момента времени нет значения, отдаётся строка "empty".
+      </p>
+      <p>
+        Получение списка последних пар время-значение для конвейера:
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">`GET /pathes/:path/:rule/last`</pre>
+    <section class="col-md-12">
+      <p>
+        Параметры запроса:
+      </p>
+      <table class="table table-bordered table-striped">
+        <tr>
+          <th>
+            Параметр
+          </th>
+          <th>
+            Тип
+          </th>
+          <th>
+            Описание
+          </th>
+        </tr>
+        <tr>
+          <td>
+            n
+          </td>
+          <td>
+            integer
+          </td>
+          <td>
+            количество последних значений
+          </td>
+        </tr>
+      </table>
+      <p>
+        Пример ответа:
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">json
+{
+ "status": "ok",
+ "code": "ok",
+ "answer": [
+    [63555103140, 11],
+    [63555103200, 10],
+    [63555103260, 10],
+    [63555103320, 10],
+    [63555103380, 10],
+    [63555103440, 10],
+    [63555103500, 10],
+    [63555103560, 10],
+    [63555103620, 10],
+    [63555103680, 10]
+ ]
+}</pre>
+    <section class="col-md-12">
+      <p>
+        В ответе содержится список пар время-значение.В случае, если для некоторого момента времени нет значения, отдаётся строка "empty".
+      </p>
+      <h3>
+        Администраторский API
+      </h3>
+      <p>
+        Пример конфигурации:
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">listen_admin_jsonapi_reqs: true
+admin_jsonapi_iface: "127.0.0.1"
+admin_jsonapi_port: 8082
+admin_jsonapi_prespawned: 1</pre>
+    <section class="col-md-12">
+      <p>
+        Получение статуса сервера:
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">`GET /status`</pre>
+    <section class="col-md-12">
+      <p>
+        Пример ответа:
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">json
+{
+ "status": "ok",
+ "code": "ok",
+ "answer": {
+    "read_rpm": 37,
+    "write_rpm": 816042,
+    "read_rps": 1,
+    "write_rps": 13601,
+    "processes_now": 162836,
+    "processes_max": 300000,
+    "pathes_count": 162256,
+    "dirty_pathes_count": "19864"
+ }
+}</pre>
+    <section class="col-md-12">
+      <p>
+        Поля ответа:
+      </p>
+      <table class="table table-bordered table-striped">
+        <tr>
+          <th>
+            Поле
+          </th>
+          <th>
+            Тип
+          </th>
+          <th>
+            Описание
+          </th>
+        </tr>
+        <tr>
+          <td>
+            read_rpm
+          </td>
+          <td>
+            integer
+          </td>
+          <td>
+            Количество запросов на чтение в минуту
+          </td>
+        </tr>
+        <tr>
+          <td>
+            write_rpm
+          </td>
+          <td>
+            integer
+          </td>
+          <td>
+            Количество запросов на запись в минуту
+          </td>
+        </tr>
+        <tr>
+          <td>
+            read_rps
+          </td>
+          <td>
+            integer
+          </td>
+          <td>
+            Количество запросов на чтение в секунду
+          </td>
+        </tr>
+        <tr>
+          <td>
+            write_rps
+          </td>
+          <td>
+            integer
+          </td>
+          <td>
+            Количество запросов на запись в секунду
+          </td>
+        </tr>
+        <tr>
+          <td>
+            processes_now
+          </td>
+          <td>
+            integer
+          </td>
+          <td>
+            Количество работающих в данный момент процессов
+          </td>
+        </tr>
+        <tr>
+          <td>
+            processes_max
+          </td>
+          <td>
+            integer
+          </td>
+          <td>
+            Максимально возможное количество процессов
+          </td>
+        </tr>
+        <tr>
+          <td>
+            pathes_count
+          </td>
+          <td>
+            integer
+          </td>
+          <td>
+            Количество путей
+          </td>
+        </tr>
+        <tr>
+          <td>
+            dirty_pathes_count
+          </td>
+          <td>
+            integer
+          </td>
+          <td>
+            Количество несохраненных путей
+          </td>
+        </tr>
+      </table>
+      <h3>
+        Cписок всех сохранённых путей
+      </h3>
+    </section>
+    <pre class="prettyprint linenums col-md-12">`GET /pathes/all`</pre>
+    <section class="col-md-12">
+      <p>
+        Пример ответа:
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">json
+{
+ "status": "ok",
+ "code": "ok",
+ "answer": [
+    "some-stats-a",
+    "some-stats-b"
+ ]
+}</pre>
+    <section class="col-md-12">
+      <h3>
+        Удаление пути
+      </h3>
+    </section>
+    <pre class="prettyprint linenums col-md-12">`DELETE /pathes/:path`</pre>
+    <section class="col-md-12">
+      <p>
+        Пример ответа:
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">json
+{
+ "status": "ok",
+ "code": "ok",
+ "answer": "deleted"
+}</pre>
+    <section class="col-md-12">
+      <h3>
+        Аггрегированный список пар время-значение для нескольких конвееров
+      </h3>
+    </section>
+    <pre class="prettyprint linenums col-md-12">`POST /aggregate`</pre>
+    <section class="col-md-12">
+      <p>
+        Пути задаются в теле запроса в формате "pathes=path1,path2,path3".
+      </p>
+      <p>
+        Параметры запроса:
+      </p>
+      <table class="table table-bordered table-striped">
+        <tr>
+          <th>
+            Параметр
+          </th>
+          <th>
+            Тип
+          </th>
+          <th>
+            Описание
+          </th>
+        </tr>
+        <tr>
+          <td>
+            from
+          </td>
+          <td>
+            integer
+          </td>
+          <td>
+            Начальное время, UTC timestamp
+          </td>
+        </tr>
+        <tr>
+          <td>
+            to
+          </td>
+          <td>
+            integer
+          </td>
+          <td>
+            Конечное время, UTC timestamp
+          </td>
+        </tr>
+        <tr>
+          <td>
+            rule
+          </td>
+          <td>
+            string
+          </td>
+          <td>
+            Используемое правило
+          </td>
+        </tr>
+        <tr>
+          <td>
+            aggregate
+          </td>
+          <td>
+            string 
+          </td>
+          <td>
+            Агрегирующая функция. Возможные значения: max, min, avg, sum
+          </td>
+        </tr>
+      </table>
+      <p>
+        Пример ответа:
+      </p>
+    </section>
+    <pre class="prettyprint linenums col-md-12">json
+{
+ "status": "ok",
+ "code": "ok",
+ "answer": [
+    [63555096900, 12],
+    [63555096960, "empty"],
+    [63555097020, 10],
+    [63555097080, 16],
+    [63555097140, 10],
+    [63555097200, "empty"],
+    [63555097260, 11],
+    [63555097320, 17],
+    [63555097380,16],
+    [63555097440, "empty"]
+ ]
+}</pre>
+    <section class="col-md-12">
+      <h3>
+        Коды ошибок
+      </h3>
+      <table class="table table-bordered table-striped">
+        <tr>
+          <th>
+            Код
+          </th>
+          <th>
+            HTTP-код
+          </th>
+          <th>
+            Описание 
+          </th>
+        </tr>
+        <tr>
+          <td>
+            no_aggregate 
+          </td>
+          <td>
+            400
+          </td>
+          <td>
+            Параметр запроса aggregate не указан или неправильно сформирован
+          </td>
+        </tr>
+        <tr>
+          <td>
+            no_path
+          </td>
+          <td>
+            400
+          </td>
+          <td>
+            Параметр запроса path не указан или неправильно сформирован
+          </td>
+        </tr>
+        <tr>
+          <td>
+            no_rule
+          </td>
+          <td>
+            400
+          </td>
+          <td>
+            Параметр запроса rule не указан или неправильно сформирован
+          </td>
+        </tr>
+        <tr>
+          <td>
+            no_from
+          </td>
+          <td>
+            400
+          </td>
+          <td>
+            Параметр запроса from не указан или неправильно сформирован     
+          </td>
+        </tr>
+        <tr>
+          <td>
+            no_to
+          </td>
+          <td>
+            400
+          </td>
+          <td>
+            Параметр запроса to не указан или неправильно сформирован 
+          </td>
+        </tr>
+        <tr>
+          <td>
+            no_n 
+          </td>
+          <td>
+            400
+          </td>
+          <td>
+            Параметр запроса n не указан или неправильно сформирован 
+          </td>
+        </tr>
+        <tr>
+          <td>
+            no_pathes 
+          </td>
+          <td>
+            400
+          </td>
+          <td>
+            Параметр запроса pathes не указан или неправильно сформирован
+          </td>
+        </tr>
+        <tr>
+          <td>
+            no_body 
+          </td>
+          <td>
+            400
+          </td>
+          <td>
+            Ожидается, но отсутствует тело http-запроса
+          </td>
+        </tr>
+        <tr>
+          <td>
+            no_fun
+          </td>
+          <td>
+            400
+          </td>
+          <td>
+            Неизвестный запрос
+          </td>
+        </tr>
+        <tr>
+          <td>
+            from_to_order
+          </td>
+          <td>
+            400
+          </td>
+          <td>
+            Значение параметра from больше, чем значение параметра to
+          </td>
+        </tr>
+        <tr>
+          <td>
+            page_not_found
+          </td>
+          <td>
+            404
+          </td>
+          <td>
+            Запрошенный путь не найден
+          </td>
+        </tr>
+        <tr>
+          <td>
+            rule_not_found
+          </td>
+          <td>
+            404
+          </td>
+          <td>
+            Запрошенное правило для указанного пути не найдено
+          </td>
+        </tr>
+        <tr>
+          <td>
+            slice_too_big
+          </td>
+          <td>
+            413
+          </td>
+          <td>
+            Количество результатов запроса превышает значение параметра max_slice
+          </td>
+        </tr>
+        <tr>
+          <td>
+            process_limit
+          </td>
+          <td>
+            500
+          </td>
+          <td>
+            Достигнуто ограничение по количество процессов
+          </td>
+        </tr>
+        <tr>
+          <td>
+            memory_limit
+          </td>
+          <td>
+            500
+          </td>
+          <td>
+            Достигнуто ограничение по записи
+          </td>
+        </tr>
+        <tr>
+          <td>
+            internal
+          </td>
+          <td>
+            500
+          </td>
+          <td>
+            Внутренняя ошибка
+          </td>
+        </tr>
+      </table>
+      <h3>
+        API для записи
+      </h3>
+      <p>
+        Используется для записи новых данных в YAWNDB. Для записи клиент должен подключиться по TCP к порту, указанному в конфигурационном файле в разделе `TCP API options` и посылать пакеты в указанном формате, ответа от сервера не ожидается. 
+      </p>
+      <p>
+        Основные используемые типы данных.
+      </p>
+      <table class="table table-bordered table-striped">
+        <tr>
+          <th>
+            Тип 
+          </th>
+          <th>
+            Описание 
+          </th>
+        </tr>
+        <tr>
+          <td>
+            uint8
+          </td>
+          <td>
+            Беззнаковое 8-битное число
+          </td>
+        </tr>
+        <tr>
+          <td>
+            uint16 
+          </td>
+          <td>
+            Беззнаковое 16-битное число в big-endian
+          </td>
+        </tr>
+        <tr>
+          <td>
+            uint64
+          </td>
+          <td>
+            Беззнаковое 64-битное число в big-endian
+          </td>
+        </tr>
+        <tr>
+          <td>
+            byte
+          </td>
+          <td>
+            Последовательность байтов
+          </td>
+        </tr>
+      </table>
+      <h3>
+        Структура пакета
+      </h3>
+      <table class="table table-bordered table-striped">
+        <tr>
+          <th>
+            Тип поля
+          </th>
+          <th>
+            Значение поля 
+          </th>
+        </tr>
+        <tr>
+          <td>
+            uint16
+          </td>
+          <td>
+            Размер пакета (за исключением этого поля)
+          </td>
+        </tr>
+        <tr>
+          <td>
+            uint8
+          </td>
+          <td>
+            Версия протокола (в настоящий момент - 3 )
+          </td>
+        </tr>
+        <tr>
+          <td>
+            uint8
+          </td>
+          <td>
+            Флаг, показывающий, является ли значение специальным (0 - нет, любое другое значение - да)
+          </td>
+        </tr>
+        <tr>
+          <td>
+            unit64
+          </td>
+          <td>
+            Целое число секунд до начала UNIX-эры
+          </td>
+        </tr>
+        <tr>
+          <td>
+            unit64
+          </td>
+          <td>
+            Значение или номер специального значения
+          </td>
+        </tr>
+        <tr>
+          <td>
+            byte
+          </td>
+          <td>
+            Последовательность байтов
+          </td>
+        </tr>
+      </table>
+      <h3>
+        Формирование пакета на Python
+      </h3>
+    </section>
+    <pre class="prettyprint linenums col-md-12">def encode_yawndb_packet(is_special, path, time, value):
+    “””
+Сформировать пакет данных для отправки в yawndb.	
+
+    :param bool is_special: специальное значение? используется для additional_values
+    :param str path: идентификатор метрики
+    :param int value: значение метрики
+    “””
+    is_special_int = 1 if is_special else 0
+    pck_tail = struct.pack(
+">BBQQ",
+YAWNDB_PROTOCOL_VERSION, is_special_int, time, value
+) + path
+    pck_head = struct.pack(">H", len(pck_tail))
+    return pck_head + pck_tail</pre>
+    <section class="col-md-12">
+      <h3>
+        Формирование пакета для записи данных на С
+      </h3>
+    </section>
+    <pre class="prettyprint linenums col-md-12">// задаем версию протокола
+#define YAWNDB_PROTOCOL_VERSION 3
+// описываем структуру пакета
+struct yawndb_packet_struct {
+    uint16_t	length;
+    uint8_t 	version;
+    int8_t 	isSpecial;
+    uint64_t	timestamp;
+    uint64_t	value;
+    char  	path[];
+};
+// формируем пакет
+yawndb_packet_struct *encode_yawndb_packet(int8_t isSpecial,
+    uint64_t timestamp, uint64_t value, const char * path) {
+    yawndb_packet_struct *packet;
+    uint16_t length;
+
+    lenght = sizeof(uint8_t) + sizeof(int8_t) + sizeof(uint64_t) + sizeof(uint64_t) + strlen(path);
+    packet = malloc(length + sizeof(uint16_t));
+    packet->length = htobe16(length);
+    packet->version = YAWNDB_PROTOCOL_VERSION;
+    packet->isSpecial = isSpecial;
+    packet->timestamp = htobe64(timestamp);
+    packet->value = htobe64(value);
+    strncpy(packet->path, path, strlen(path));
+
+    return packet;
+}</pre>
+    <section class="col-md-12">
+      <h3>
+        Лицензия
+      </h3>
+      <p>
+        Опубликовано под лицензией GNU GPL.  
+      </p>
+      <table class="table table-bordered table-striped">
+        <tr>
+          <td>
+            Требуется указывать имя автора
+          </td>
+          <td>
+            Да
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Измененные файлы должны быть помечены
+          </td>
+          <td>
+            Да
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Наименование производного ПО должно отличаться от наименования продукта создателей лицензии
+          </td>
+          <td>
+            Нет
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Производные продукты должны распространяться на условиях первоначальной лицензии
+          </td>
+          <td>
+            Да
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Указана территория, на которую предоставляется лицензия
+          </td>
+          <td>
+            Нет
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Отсутствие гарантий на ПО
+          </td>
+          <td>
+            Да
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Предоставляется право применить другую лицензию
+          </td>
+          <td>
+            Нет
+          </td>
+        </tr>
+      </table>
+      <p>
+        Ссылка на репозиторий на <!--noindex--><a rel="nofollow" target="_blank" href="https://github.com/selectel/pyte">GitHub</a><!--/noindex-->.
+      </p>
+    </section>
+  </article>
+</section></MAIN><FOOTER class="navbar navbar-default">2014 © Селектел</FOOTER>
+  </body>
+</html>
