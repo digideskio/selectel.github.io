@@ -2,61 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>http://selectel.io/404.html</loc>
-    <lastmod>2014-04-01T00:00:00+04:00</lastmod>
+    <lastmod>2014-04-03T00:00:00+04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>http://selectel.io/about/</loc>
-    <lastmod>2014-04-01T00:00:00+04:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1</priority>
-  </url>
-  <url>
-    <loc>http://selectel.io/command/</loc>
-    <lastmod>2014-04-01T00:00:00+04:00</lastmod>
+    <lastmod>2014-04-03T00:00:00+04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>http://selectel.io/google53d8f7084bad1714.html</loc>
-    <lastmod>2014-04-01T00:00:00+04:00</lastmod>
+    <lastmod>2014-04-03T00:00:00+04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://selectel.io/</loc>
-    <lastmod>2014-04-01T00:00:00+04:00</lastmod>
+    <lastmod>2014-04-03T00:00:00+04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>http://selectel.io/projects/hen/</loc>
-    <lastmod>2014-04-01T00:00:00+04:00</lastmod>
+    <lastmod>2014-04-03T00:00:00+04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>http://selectel.io/projects/pyte/</loc>
-    <lastmod>2014-04-01T00:00:00+04:00</lastmod>
+    <lastmod>2014-04-03T00:00:00+04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>http://selectel.io/projects/supload/</loc>
-    <lastmod>2014-04-01T00:00:00+04:00</lastmod>
+    <lastmod>2014-04-03T00:00:00+04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>http://selectel.io/projects/tempo/</loc>
-    <lastmod>2014-04-01T00:00:00+04:00</lastmod>
+    <lastmod>2014-04-03T00:00:00+04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
   <url>
     <loc>http://selectel.io/projects/yawndb/</loc>
-    <lastmod>2014-04-01T00:00:00+04:00</lastmod>
+    <lastmod>2014-04-03T00:00:00+04:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1</priority>
   </url>
